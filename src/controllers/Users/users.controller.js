@@ -7,7 +7,6 @@ import { TABLE_USERS } from "../../const";
 const getUser = async (req, res) => {
   try {
     const { email, password } = req.body;
-    console.log(req.body)
     const connection = await getConnection();
     // Find the user by their username in the database
     const sql = `SELECT * FROM ${TABLE_USERS} WHERE email = ?`;
@@ -34,6 +33,7 @@ const getUser = async (req, res) => {
   } catch (error) {
     res.status(500);
     res.send(error.message);
+    console.log(error);
   }
 };
 
