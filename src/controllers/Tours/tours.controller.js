@@ -12,7 +12,7 @@ const getRoutes = async (req, res) => {
     INNER JOIN ${TABLE_RATES} ON ${TABLE_TOURS}.rateId = ${TABLE_RATES}.id 
 
   `;
-    const results = await connection.query(sql);
+    const [results] = await connection.query(sql);
     return res.json(results);
   } catch (error) {
     res.status(500);
@@ -37,7 +37,7 @@ const createRoute = async (req, res) => {
     const connection = await getConnection();
     const sql = `INSERT INTO ${TABLE_TOURS} SET ?`;
     const params = [tour];
-    const results = await connection.query(sql, params);
+    const [results] = await connection.query(sql, params);
     return res.json(results);
   } catch (error) {
     res.status(500);

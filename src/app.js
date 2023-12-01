@@ -1,6 +1,7 @@
 import express from "express";
 import morgan from "morgan";
 import cors from "cors";
+import { config } from "dotenv";
 import userRoutes from "./routes/user.routes";
 import vanRoutes from "./routes/van.routes";
 import seatRoutes from "./routes/seat.routes";
@@ -10,11 +11,11 @@ import scheduleRoutes from "./routes/schedule.routes";
 import reservesRoutes from "./routes/reserve.routes";
 import mercadoPagoRoutes from "./routes/mercadoPago.routes";
 import driverRoutes from "./routes/driver.routes";
-
+config();
 const app = express();
 
 // Settings
-app.set("port", 4000);
+app.set("port", process.env.PORT);
 
 // Middlewares
 app.use(morgan("dev"));

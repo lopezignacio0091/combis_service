@@ -1,1 +1,4 @@
-.env.local
+# Node artifact files
+node_modules/
+dist/
+.env

@@ -11,11 +11,13 @@ const getUser = async (req, res) => {
     // Find the user by their username in the database
     const sql = `SELECT * FROM ${TABLE_USERS} WHERE email = ?`;
     const params = [email];
-    const results = await connection.query(sql, params);
-    if (results.length === 0) {
+    const [results] = await connection.query(sql, params);
+    if (results[0].length === 0) {
       return res.status(401).send("User not found");
     }
     const user = results[0];
+
+    console.log({user})
     // Compare the provided password with the stored hash
     const passwordMatch = await bcrypt.compare(password, user.hashpassword);
     // Passwords don't match, authentication failed
@@ -88,7 +90,7 @@ const getUserByToken = async (req, res) => {
     const sql = `SELECT * FROM ${TABLE_USERS} WHERE email = ?`;
     const params = [email];
     const connection = await getConnection();
-    const results = await connection.query(sql, params);
+    const [results] = await connection.query(sql, params);
     if (results.length === 0) {
       return res.status(401).send("User not found");
     }

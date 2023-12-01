@@ -6,7 +6,7 @@ const getRates = async (req, res) => {
   try {
     const connection = await getConnection();
     const sql = `SELECT * FROM ${TABLE_RATES}`;
-    const results = await connection.query(sql);
+    const [results] = await connection.query(sql);
     return res.json(results);
   } catch (error) {
     res.status(500);
@@ -27,7 +27,7 @@ const createRate = async (req, res) => {
     const connection = await getConnection();
     const sql = `INSERT INTO ${TABLE_RATES} SET ?`;
     const params = [rate];
-    const results = await connection.query(sql, params);
+    const [results] = await connection.query(sql, params);
     return res.json(results);
   } catch (error) {
     res.status(500);

@@ -6,7 +6,7 @@ const getSchedules = async (req, res) => {
   try {
     const connection = await getConnection();
     const sql = `SELECT * FROM ${TABLE_SCHEDULES}`;
-    const results = connection.query(sql);
+    const [results] = connection.query(sql);
     return res.json(results);
   } catch (error) {
     res.status(500);
@@ -27,7 +27,7 @@ const createSchedule = async (req, res) => {
     const connection = await getConnection();
     const sql = `INSERT INTO ${TABLE_SCHEDULES} SET ?`;
     const params = [schedule];
-    const results = await connection.query(sql, params);
+    const [results] = await connection.query(sql, params);
     return res.json(results);
   } catch (error) {
     res.status(500);

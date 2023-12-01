@@ -1,10 +1,10 @@
-export const TABLE_SEATS = "seats";
-export const TABLE_USERS = "users";
-export const TABLE_VANS = "vans";
-export const TABLE_RATES = "rates";
-export const TABLE_TOURS = "tours";
-export const TABLE_SCHEDULES = "schedules";
-export const TABLE_RESERVES = "reserves";
+export const TABLE_SEATS = "Seats";
+export const TABLE_USERS = "Users";
+export const TABLE_VANS = "Vans";
+export const TABLE_RATES = "Rates";
+export const TABLE_TOURS = "Tours";
+export const TABLE_SCHEDULES = "Schedules";
+export const TABLE_RESERVES = "Reserves";
 
 
 

@@ -18,7 +18,7 @@ const getTrips = async (req, res) => {
     ORDER BY created_at DESC`;
 
   const params = [driverId];
-  const results = await connection.query(sql, params);
+  const [results] = await connection.query(sql, params);
   res.json(results);
 };
 

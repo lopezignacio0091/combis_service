@@ -35,7 +35,7 @@ const getVansAndSeatsById = async (req, res) => {
                  INNER JOIN ${TABLE_SEATS} ON ${TABLE_VANS}.id = ${TABLE_SEATS}.vanId 
                  WHERE ${TABLE_VANS}.id = ? ORDER BY ${TABLE_SEATS}.seatNumber ASC`;
     const params = [vanId];
-    const results = await connection.query(sql, params);
+    const [results] = await connection.query(sql, params);
     if (results.length === 0) {
       return res.status(401).send("Seats not found");
     }

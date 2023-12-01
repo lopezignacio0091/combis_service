@@ -6,5 +6,6 @@ export default {
   database: process.env.DATABASE || "",
   user: process.env.USERNAME || "",
   password: process.env.PASSWORD || "",
-  accessToken : process.env.ACCESS_TOKEN
+  accessToken : process.env.ACCESS_TOKEN,
+  port:process.env.PORT_BD,
 };
