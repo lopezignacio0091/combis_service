@@ -40,7 +40,7 @@ const getUser = async (req, res) => {
 
 const createUser = async (req, res) => {
   try {
-    const { email, name, password , rol } = req.body;
+    const { email, name, password , rol , domicile } = req.body;
     if (!email || !name || !password || !rol || !domicile) {
       res.status(400).json("Bad request , Please fill all field");
     }
