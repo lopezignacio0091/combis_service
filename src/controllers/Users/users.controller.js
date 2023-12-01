@@ -13,7 +13,6 @@ const getUser = async (req, res) => {
     const sql = `SELECT * FROM ${TABLE_USERS} WHERE email = ?`;
     const params = [email];
     const results = await connection.query(sql, params);
-    console.log(results)
     if (results.length === 0) {
       return res.status(401).send("User not found");
     }
