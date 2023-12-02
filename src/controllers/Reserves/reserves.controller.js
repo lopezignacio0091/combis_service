@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from "uuid";
 const createReserve = async (req, res) => {
   try {
     const { userId, tourId, seatId, date , alternativeDomicile } = req.body;
-    if (!userId || !tourId || !seatId || !date || !alternativeDomicile) {
+    if (!userId || !tourId || !seatId || !date ) {
       res.status(400).json("Bad request , Please fill all field");
     }
     const reserveId = uuidv4();
